@@ -1,8 +1,9 @@
-export const addTodo = (content) => {
+export const addTodo = (data) => {
   return {
     type: 'ADD_TODO',
-    content: content,
-    status: false
+    content: data.content,
+    status: data.status,
+    id: data.id
   }
 }
 

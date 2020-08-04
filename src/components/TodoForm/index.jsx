@@ -20,7 +20,19 @@ class TodoForm extends React.Component {
   }
 
   onSubmit = () => {
-    this.props.addTodo(this.state.content)
+    let _this = this
+    if (this.state.content === '') {
+      alert('please input your todo')
+      return
+    }
+    Axios.post('https://5f2929aba1b6bf0016ead10a.mockapi.io/todos', {
+      content: this.state.content,
+      status: false
+    })
+    .then(function (response) {
+      console.log(response.data);
+      _this.props.addTodo(response.data)
+    })
   }
 
   onChange = (event) => {
@@ -29,16 +41,6 @@ class TodoForm extends React.Component {
     })
   }
 
-  componentDidMount() {
-    const _this = this
-    Axios.get('https://5f2929aba1b6bf0016ead10a.mockapi.io/todos')
-    .then(function (response) {
-      _this.props.initData(response.data)
-    })
-    .catch(function (error) {
-      console.log(error)
-    })
-  }
 }
 
 export default TodoForm
