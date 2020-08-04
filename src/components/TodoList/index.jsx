@@ -26,12 +26,13 @@ class TodoList extends React.Component {
   }
 
   changeStatus = (id, status) => {
+    const _this = this
     Axios.put(`https://5f2929aba1b6bf0016ead10a.mockapi.io/todos/${id}`,{
       status : !status
     })
     .then(function(response){
         console.log(response)
-        this.props.changeStatus(id)
+        _this.props.changeStatus(id)
     })
   }
 
