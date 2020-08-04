@@ -36,7 +36,12 @@ class TodoList extends React.Component {
   }
 
   deleteTodo = (id) => {
-    this.props.deleteTodo(id)
+    const _this = this
+    Axios.delete(`https://5f2929aba1b6bf0016ead10a.mockapi.io/todos/${id}`)
+    .then(function(response){
+      console.log(response)
+      _this.props.deleteTodo(id)
+    })
   }
 
   componentDidMount() {
