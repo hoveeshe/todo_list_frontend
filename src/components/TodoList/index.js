@@ -10,12 +10,13 @@ class TodoList extends React.Component {
   }
 
   render() {
-    console.log(this.props.todoList);
     return (
       <div>
+        <h3>Todo List</h3>
         {this.props.todoList.map((item, index) => 
           <Todo key={index}
-            text={this.props.todoList[index].text} />)
+            index={index}
+            text={item.text} />)
         }
       </div>
     )
