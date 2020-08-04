@@ -13,7 +13,7 @@ class Todo extends React.Component {
     return (
       <div className='todo' onClick={this.onClick}>
         <span className={this.props.status ? 'done' : ''}>{this.props.content}</span>
-        <span onClick={this.delete}>x</span>
+        <button onClick={this.delete}>x</button>
       </div>
     )
   }

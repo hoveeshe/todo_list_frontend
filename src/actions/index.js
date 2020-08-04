@@ -12,3 +12,10 @@ export const deleteTodo = (id) => {
     id: id
   }
 }
+
+export const initData = (data) => {
+  return {
+    type: 'INIT_DATA',
+    data: data
+  }
+}

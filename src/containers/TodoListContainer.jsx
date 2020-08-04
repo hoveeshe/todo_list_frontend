@@ -1,6 +1,9 @@
 import {connect} from 'react-redux'
 import TodoList from '../components/TodoList'
-import {deleteTodo} from '../actions'
+import {
+  deleteTodo,
+  initData
+} from '../actions'
 
 const mapStateToProps = (state) => ({
   todoList: state.todoList
@@ -15,6 +18,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteTodo: (id) => {
     dispatch(deleteTodo(id))
+  },
+  initData: (data) => {
+    dispatch(initData(data))
   }
 })
 

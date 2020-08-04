@@ -1,5 +1,6 @@
 import React from 'react'
 import Todo from '../Todo'
+import Axios from 'axios'
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -30,6 +31,17 @@ class TodoList extends React.Component {
 
   deleteTodo = (id) => {
     this.props.deleteTodo(id)
+  }
+
+  componentDidMount() {
+    const _this = this
+    Axios.get('https://5f2929aba1b6bf0016ead10a.mockapi.io/todos')
+    .then(function (response) {
+      _this.props.initData(response.data)
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
   }
 
 }
