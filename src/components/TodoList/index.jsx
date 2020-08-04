@@ -25,8 +25,14 @@ class TodoList extends React.Component {
     )
   }
 
-  changeStatus = (id) => {
-    this.props.changeStatus(id)
+  changeStatus = (id, status) => {
+    Axios.put(`https://5f2929aba1b6bf0016ead10a.mockapi.io/todos/${id}`,{
+      status : !status
+    })
+    .then(function(response){
+        console.log(response)
+        this.props.changeStatus(id)
+    })
   }
 
   deleteTodo = (id) => {

@@ -19,7 +19,7 @@ class Todo extends React.Component {
   }
 
   onClick = (event) => {
-    this.props.changeStatus(this.state.id)
+    this.props.changeStatus(this.state.id, this.props.status)
     event.stopPropagation()
   }
 
