@@ -2,11 +2,9 @@
   background-color: white;
   color: black;
   width: 200px;
+  margin: 5px 0px;
 }
 
-.todoDone {
-  background-color: white;
-  color: black;
-  width: 200px;
+.done {
   text-decoration: line-through black;
 }

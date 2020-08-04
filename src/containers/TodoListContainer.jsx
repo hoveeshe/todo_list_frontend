@@ -5,4 +5,13 @@ const mapStateToProps = (state) => ({
   todoList: state.todoList
 })
 
-export default connect(mapStateToProps)(TodoList)
+const mapDispatchToProps = (dispatch) => ({
+  changeStatus: (id) => {
+    dispatch({
+      type: 'CHANGE_STATUS',
+      id: id
+    })
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList)

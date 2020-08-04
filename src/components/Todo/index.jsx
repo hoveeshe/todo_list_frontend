@@ -5,32 +5,29 @@ class Todo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      index: this.props.index,
-      className: 'todo'
+      id: this.props.id
     }
   }
 
   render() {
     return (
-      <div className={this.state.className} onClick={this.onClick}>
-        {this.props.content}
-        <button onClick={this.delete}>X</button>
+      <div className='todo' onClick={this.onClick}>
+        <span className={this.props.status ? 'done' : ''}>{this.props.content}</span>
+        <span onClick={this.delete}>X</span>
       </div>
     )
   }
 
   onClick = (event) => {
+    this.props.changeStatus(this.state.id)
     event.stopPropagation()
-    console.log('onClick');
-    console.log(this.state.index);
   }
 
   delete = (event) => {
     event.stopPropagation()
     console.log('delete');
-    console.log(this.state.index);
+    console.log(this.state.id);
   }
-
 
 }
 

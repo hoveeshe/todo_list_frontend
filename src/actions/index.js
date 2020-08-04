@@ -1,7 +1,8 @@
 export const addTodo = (content) => {
   return {
     type: 'ADD_TODO',
-    content: content
+    content: content,
+    status: false
   }
 }
 

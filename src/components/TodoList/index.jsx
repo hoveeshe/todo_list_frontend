@@ -12,14 +12,19 @@ class TodoList extends React.Component {
   render() {
     return (
       <div>
-        <h3>Todo List</h3>
         {this.props.todoList.map((item, index) => 
           <Todo key={index}
-            index={index}
-            content={item.content} />)
+            id={item.id}
+            content={item.content}
+            status={item.status}
+            changeStatus={this.changeStatus} />)
         }
       </div>
     )
+  }
+
+  changeStatus = (id) => {
+    this.props.changeStatus(id)
   }
 
 }
