@@ -10,15 +10,15 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <div>
         <input type="text" onChange={this.onChange}/>
-        <button type="submit">add</button>
-      </form>
+        <button onClick={this.onSubmit}>add</button>
+      </div>
     )
   }
 
   onSubmit = () => {
-    
+    this.props.addTodo(this.state.text)
   }
 
   onChange = (event) => {
