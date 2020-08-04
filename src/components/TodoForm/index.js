@@ -4,7 +4,7 @@ class TodoForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      text: ''
+      content: ''
     }
   }
 
@@ -18,12 +18,12 @@ class TodoForm extends React.Component {
   }
 
   onSubmit = () => {
-    this.props.addTodo(this.state.text)
+    this.props.addTodo(this.state.content)
   }
 
   onChange = (event) => {
     this.setState({
-      text: event.target.value
+      content: event.target.value
     })
   }
 

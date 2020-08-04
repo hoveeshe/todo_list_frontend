@@ -1,7 +1,7 @@
-export const addTodo = (text) => {
+export const addTodo = (content) => {
   return {
     type: 'ADD_TODO',
-    text: text
+    content: content
   }
 }
 

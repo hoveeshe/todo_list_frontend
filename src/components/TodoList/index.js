@@ -16,7 +16,7 @@ class TodoList extends React.Component {
         {this.props.todoList.map((item, index) => 
           <Todo key={index}
             index={index}
-            text={item.text} />)
+            content={item.content} />)
         }
       </div>
     )

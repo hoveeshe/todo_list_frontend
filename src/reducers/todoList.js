@@ -1,7 +1,7 @@
 const todoList = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
-      return [...state, {text: action.text}]
+      return [...state, {content: action.content}]
     default:
       return state
   }

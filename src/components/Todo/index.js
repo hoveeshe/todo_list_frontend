@@ -13,7 +13,7 @@ class Todo extends React.Component {
   render() {
     return (
       <div className={this.state.className} onClick={this.onClick}>
-        {this.props.text}
+        {this.props.content}
         <button onClick={this.delete}>X</button>
       </div>
     )
