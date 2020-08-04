@@ -13,7 +13,7 @@ class Todo extends React.Component {
     return (
       <div className='todo' onClick={this.onClick}>
         <span className={this.props.status ? 'done' : ''}>{this.props.content}</span>
-        <span onClick={this.delete}>X</span>
+        <span onClick={this.delete}>x</span>
       </div>
     )
   }
@@ -24,9 +24,8 @@ class Todo extends React.Component {
   }
 
   delete = (event) => {
+    this.props.deleteTodo(this.state.id)
     event.stopPropagation()
-    console.log('delete');
-    console.log(this.state.id);
   }
 
 }

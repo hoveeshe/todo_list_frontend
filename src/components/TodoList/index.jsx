@@ -13,11 +13,12 @@ class TodoList extends React.Component {
     return (
       <div>
         {this.props.todoList.map((item, index) => 
-          <Todo key={index}
+          <Todo key={item.id}
             id={item.id}
             content={item.content}
             status={item.status}
-            changeStatus={this.changeStatus} />)
+            changeStatus={this.changeStatus}
+            deleteTodo={this.deleteTodo} />)
         }
       </div>
     )
@@ -25,6 +26,10 @@ class TodoList extends React.Component {
 
   changeStatus = (id) => {
     this.props.changeStatus(id)
+  }
+
+  deleteTodo = (id) => {
+    this.props.deleteTodo(id)
   }
 
 }

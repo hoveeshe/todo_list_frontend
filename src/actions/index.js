@@ -6,4 +6,9 @@ export const addTodo = (content) => {
   }
 }
 
-export default addTodo
+export const deleteTodo = (id) => {
+  return {
+    type: 'DELETE_TODO',
+    id: id
+  }
+}
