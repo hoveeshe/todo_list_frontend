@@ -22,6 +22,8 @@ class TodoList extends React.Component {
             status={item.status}
             changeStatus={this.changeStatus}
             deleteTodo={this.deleteTodo} />
+          } else {
+            return false
           }
         })}
       </div>
