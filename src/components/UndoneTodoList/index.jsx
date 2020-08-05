@@ -18,16 +18,12 @@ class UndoneTodoList extends React.Component {
       <div>
         <h3>Done List</h3>
         {this.props.todoList.map((item, index) => {
-          if (!item.status) {
-            return <Todo key={item.id}
-              id={item.id}
-              content={item.content}
-              status={item.status}
-              changeStatus={this.changeStatus}
-              deleteTodo={this.deleteTodo} />
-          } else {
-            return false
-          }
+          return <Todo key={item.id}
+            id={item.id}
+            content={item.content}
+            status={item.status}
+            changeStatus={this.changeStatus}
+            deleteTodo={this.deleteTodo} />
         })}
       </div>
     )
@@ -52,7 +48,7 @@ class UndoneTodoList extends React.Component {
   componentDidMount() {
     getTodos()
     .then(response => {
-      this.props.initData(response.data)
+      this.props.initData(response.data.filter(item => !item.status))
     })
     .catch(error => {
       console.log(error)
