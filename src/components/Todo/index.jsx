@@ -1,5 +1,11 @@
 import React from 'react';
 import './index.css'
+import { Card } from 'antd'
+import {
+  DeleteOutlined,
+  CheckOutlined
+} from '@ant-design/icons'
+import 'antd/dist/antd.css'
 
 class Todo extends React.Component {
   constructor(props) {
@@ -11,10 +17,14 @@ class Todo extends React.Component {
 
   render() {
     return (
-      <div className='todo' onClick={this.onClick}>
-        <span className={this.props.status ? 'done' : ''}>{this.props.content}</span>
-        <button onClick={this.delete}>x</button>
-      </div>
+      <Card style={{ width: 250 }} actions={[
+        <DeleteOutlined key="delete" onClick={this.delete} />,
+        <CheckOutlined key="changeStatus" onClick={this.onClick}/>
+      ]}>
+        <div className='todo' onClick={this.onClick}>
+          <span className={this.props.status ? 'done' : ''}>{this.props.content}</span>
+        </div>
+      </Card>
     )
   }
 
