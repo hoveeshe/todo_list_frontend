@@ -1,6 +1,6 @@
 import React from 'react'
 import Todo from '../Todo'
-import Axios from 'axios'
+import api from '../../api/Api'
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -30,19 +30,17 @@ class TodoList extends React.Component {
 
   changeStatus = (id, status) => {
     const _this = this
-    Axios.put(`https://5f2929aba1b6bf0016ead10a.mockapi.io/todos/${id}`,{
-      status : !status
-    })
-    .then(function(response){
-        console.log(response)
-        _this.props.changeStatus(id)
+    api.updateTodo(id, !status)
+    .then(response => {
+      console.log(response)
+      _this.props.changeStatus(id)
     })
   }
 
   deleteTodo = (id) => {
     const _this = this
-    Axios.delete(`https://5f2929aba1b6bf0016ead10a.mockapi.io/todos/${id}`)
-    .then(function(response){
+    api.deleteTodo(id)
+    .then(response => {
       console.log(response)
       _this.props.deleteTodo(id)
     })
@@ -50,11 +48,11 @@ class TodoList extends React.Component {
 
   componentDidMount() {
     const _this = this
-    Axios.get('https://5f2929aba1b6bf0016ead10a.mockapi.io/todos')
-    .then(function (response) {
+    api.getTodos()
+    .then(response => {
       _this.props.initData(response.data)
     })
-    .catch(function (error) {
+    .catch(error => {
       console.log(error)
     })
   }

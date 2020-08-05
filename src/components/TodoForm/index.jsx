@@ -1,5 +1,5 @@
 import React from 'react'
-import Axios from 'axios'
+import api from '../../api/Api'
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -24,11 +24,8 @@ class TodoForm extends React.Component {
       alert('please input your todo')
       return
     }
-    Axios.post('https://5f2929aba1b6bf0016ead10a.mockapi.io/todos', {
-      content: this.state.content,
-      status: false
-    })
-    .then(function (response) {
+    api.addTodo(this.state.content)
+    .then(response => {
       console.log(response.data);
       _this.props.addTodo(response.data)
     })
