@@ -13,14 +13,17 @@ class TodoList extends React.Component {
   render() {
     return (
       <div>
-        {this.props.todoList.map((item, index) => 
-          <Todo key={item.id}
+        <h3>Todo List</h3>
+        {this.props.todoList.map((item, index) => {
+          if (!item.status) {
+            return <Todo key={item.id}
             id={item.id}
             content={item.content}
             status={item.status}
             changeStatus={this.changeStatus}
-            deleteTodo={this.deleteTodo} />)
-        }
+            deleteTodo={this.deleteTodo} />
+          }
+        })}
       </div>
     )
   }
