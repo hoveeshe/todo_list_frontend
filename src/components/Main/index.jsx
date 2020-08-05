@@ -13,22 +13,11 @@ import UndoneTodoListContainer from '../../containers/UndoneTodoListContainer'
 const { Header, Content, Footer } = Layout
 
 class Main extends React.Component {
-  state = {
-    collapsed: false,
-  };
-
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
-
   render() {
     return (
       <HashRouter>
         <Layout className="layout">
           <Header>
-            <div className="logo" />
             <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
               <Menu.Item key="1">
                 <Link replace={true} to="/">Todo</Link>
