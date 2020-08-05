@@ -1,6 +1,10 @@
 import React from 'react'
 import Todo from '../Todo'
-import api from '../../api/Api'
+import {
+  getTodos,
+  updateTodo,
+  deleteTodo
+} from '../../api/Api'
 
 class DoneTodoList extends React.Component {
   constructor(props) {
@@ -30,28 +34,25 @@ class DoneTodoList extends React.Component {
   }
 
   changeStatus = (id, status) => {
-    const _this = this
-    api.updateTodo(id, !status)
+    updateTodo(id, !status)
     .then(response => {
       console.log(response)
-      _this.props.changeStatus(id)
+      this.props.changeStatus(id)
     })
   }
 
   deleteTodo = (id) => {
-    const _this = this
-    api.deleteTodo(id)
+    deleteTodo(id)
     .then(response => {
       console.log(response)
-      _this.props.deleteTodo(id)
+      this.props.deleteTodo(id)
     })
   }
 
   componentDidMount() {
-    const _this = this
-    api.getTodos()
+    getTodos()
     .then(response => {
-      _this.props.initData(response.data)
+      this.props.initData(response.data)
     })
     .catch(error => {
       console.log(error)

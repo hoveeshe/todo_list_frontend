@@ -1,5 +1,5 @@
 import React from 'react'
-import api from '../../api/Api'
+import { addTodo } from '../../api/Api'
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class TodoForm extends React.Component {
       alert('please input your todo')
       return
     }
-    api.addTodo(this.state.content)
+    addTodo(this.state.content)
     .then(response => {
       console.log(response.data);
       _this.props.addTodo(response.data)
