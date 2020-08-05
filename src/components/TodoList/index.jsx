@@ -5,6 +5,8 @@ import {
   updateTodo,
   deleteTodo
 } from '../../api/Api'
+import 'antd/dist/antd.css'
+import { List } from 'antd'
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -18,14 +20,29 @@ class TodoList extends React.Component {
     return (
       <div>
         <h3>Todo List</h3>
-        {this.props.todoList.map((item, index) => 
-          <Todo key={item.id}
-            id={item.id}
-            content={item.content}
-            status={item.status}
-            changeStatus={this.changeStatus}
-            deleteTodo={this.deleteTodo} />
-        )}
+        <List
+          grid={{
+            gutter: 20,
+            xs: 1,
+            sm: 1,
+            md: 2,
+            lg: 3,
+            xl: 4,
+            xxl: 5,
+          }}
+          dataSource={this.props.todoList}
+          renderItem={item => (
+            <List.Item>
+              <Todo key={item.id}
+                id={item.id}
+                content={item.content}
+                status={item.status}
+                time={item.time}
+                changeStatus={this.changeStatus}
+                deleteTodo={this.deleteTodo} />
+            </List.Item>
+          )}
+        />
       </div>
     )
   }

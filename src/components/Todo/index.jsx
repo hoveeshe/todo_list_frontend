@@ -11,17 +11,23 @@ class Todo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      id: this.props.id
+      id: this.props.id,
+      time: this.props.time
     }
   }
 
   render() {
+    const dateTime = new Date(this.state.time).toLocaleString()
     return (
-      <Card style={{ width: 250 }} actions={[
+      <Card style={{ width: 330 }}
+        bodyStyle={{ height: 150 }}
+        title={'Todo ' + this.state.id}
+        extra={dateTime}
+        actions={[
         <DeleteOutlined key="delete" onClick={this.delete} />,
         <CheckOutlined key="changeStatus" onClick={this.onClick}/>
       ]}>
-        <div className='todo' onClick={this.onClick}>
+        <div onClick={this.onClick} style={{ wordWrap: "break-word"}}>
           <span className={this.props.status ? 'done' : ''}>{this.props.content}</span>
         </div>
       </Card>
