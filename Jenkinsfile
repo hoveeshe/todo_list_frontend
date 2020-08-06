@@ -8,7 +8,7 @@ pipeline {
 		}
 		stage('Build') {
 			steps{
-				sh label: '', script: '''npm install
+				bat label: '', script: '''npm install
 				npm run build'''
 			}
 		}
