@@ -8,7 +8,8 @@ pipeline {
 		}
 		stage('Build') {
 			steps{
-				build 'todo_list_frontend'
+				sh "cnpm install"
+				sh "npm build"
 			}
 		}
 	}
