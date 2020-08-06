@@ -7,9 +7,9 @@ pipeline {
 			}
 		}
 		stage('Build') {
-			sh 'node --version'
-			sh 'npm --version'
-			sh 'npm run build'
+			steps{
+				build 'todo_list_frontend'
+			}
 		}
 	}
 }
