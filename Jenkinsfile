@@ -8,10 +8,8 @@ pipeline {
 		}
 		stage('Build') {
 			steps{
-				script {
-					sh "cnpm install"
-					sh "npm build"
-				}
+				sh label: '', script: '''npm install
+				npm run build'''
 			}
 		}
 	}
