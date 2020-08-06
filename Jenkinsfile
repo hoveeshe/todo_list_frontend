@@ -7,9 +7,11 @@ pipeline {
 			}
 		}
 		stage('Build') {
-			script {
-				sh "cnpm install"
-				sh "npm build"
+			steps{
+				script {
+					sh "cnpm install"
+					sh "npm build"
+				}
 			}
 		}
 	}
