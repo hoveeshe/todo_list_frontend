@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout, Menu, Breadcrumb, Card } from 'antd'
+import { Layout, Menu, Breadcrumb, Card, Row, Col } from 'antd'
 import {
   LikeOutlined
 } from '@ant-design/icons'
@@ -14,21 +14,30 @@ const { Header, Content, Footer } = Layout
 
 class Main extends React.Component {
   render() {
+    const selected = document.URL
+    const key = selected.substring(selected.lastIndexOf('/') + 1)
     return (
       <HashRouter>
         <Layout className="layout">
           <Header>
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-              <Menu.Item key="1">
-                <Link replace={true} to="/">Todo</Link>
-              </Menu.Item>
-              <Menu.Item key="2">
-                <Link replace={true} to="/undone-todolist">Undo</Link>
-              </Menu.Item>
-              <Menu.Item key="3">
-                <Link replace={true} to="/done-todolist" icon={<LikeOutlined />}>Done</Link>
-              </Menu.Item>
-            </Menu>
+            <Row>
+              <Col span={8}>
+                <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[key]}>
+                  <Menu.Item key="/">
+                    <Link replace={true} to="/">All</Link>
+                  </Menu.Item>
+                  <Menu.Item key="todo">
+                    <Link replace={true} to="/todo">Todo</Link>
+                  </Menu.Item>
+                  <Menu.Item key="done">
+                    <Link replace={true} to="/done" icon={<LikeOutlined />}>Done</Link>
+                  </Menu.Item>
+                </Menu>
+              </Col>
+              <Col span={8}>
+                <h1>Todo List</h1>
+              </Col>
+            </Row>
           </Header>
           <Content style={{ padding: '0 50px', minHeight: '800px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
@@ -38,8 +47,8 @@ class Main extends React.Component {
               <TodoFormContainer/>
               <Card>
                 <Route exact path="/" component={TodoListContainer} />
-                <Route exact path="/undone-todolist" component={UndoneTodoListContainer} />
-                <Route exact path="/done-todolist" component={DoneTodoListContainer} />
+                <Route exact path="/todo" component={UndoneTodoListContainer} />
+                <Route exact path="/done" component={DoneTodoListContainer} />
               </Card>
             </div>
           </Content>

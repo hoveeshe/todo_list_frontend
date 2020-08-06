@@ -10,7 +10,8 @@ export const addTodo = (data) => {
     type: ADD_TODO,
     content: data.content,
     status: data.status,
-    id: data.id
+    id: data.id,
+    createdTime: data.createdTime
   }
 }
 

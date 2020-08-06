@@ -25,10 +25,7 @@ class DoneTodoList extends React.Component {
           renderItem={item => (
             <List.Item>
               <Todo key={item.id}
-                id={item.id}
-                content={item.content}
-                status={item.status}
-                time={item.time}
+                todo={item}
                 changeStatus={this.changeStatus}
                 deleteTodo={this.deleteTodo} />
             </List.Item>

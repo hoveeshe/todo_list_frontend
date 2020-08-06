@@ -1,7 +1,7 @@
 const todoList = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
-      return [...state, {content: action.content, status: action.status, id: action.id, time: action.time}]
+      return [...state, {content: action.content, status: action.status, id: action.id, createdTime: action.createdTime}]
     case 'DELETE_TODO':
       return [...state.filter((item, index) => item.id !== action.id)]
     case 'CHANGE_STATUS':

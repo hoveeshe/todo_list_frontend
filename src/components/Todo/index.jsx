@@ -11,36 +11,34 @@ class Todo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      id: this.props.id,
-      time: this.props.time
     }
   }
 
   render() {
-    const dateTime = new Date(this.state.time).toLocaleString()
+    const createdTime = new Date(this.props.todo.createdTime).toLocaleString()
     return (
       <Card style={{ width: 330 }}
         bodyStyle={{ height: 150 }}
-        title={'Todo ' + this.state.id}
-        extra={dateTime}
+        title={'Todo ' + this.props.todo.id}
+        extra={createdTime}
         actions={[
         <DeleteOutlined key="delete" onClick={this.delete} />,
         <CheckOutlined key="changeStatus" onClick={this.onClick}/>
       ]}>
         <div onClick={this.onClick} style={{ wordWrap: "break-word"}}>
-          <span className={this.props.status ? 'done' : ''}>{this.props.content}</span>
+          <span className={this.props.todo.status ? 'done' : ''}>{this.props.todo.content}</span>
         </div>
       </Card>
     )
   }
 
   onClick = (event) => {
-    this.props.changeStatus(this.state.id, this.props.status)
+    this.props.changeStatus(this.props.todo.id, this.props.todo.status)
     event.stopPropagation()
   }
 
   delete = (event) => {
-    this.props.deleteTodo(this.state.id)
+    this.props.deleteTodo(this.props.todo.id)
     event.stopPropagation()
   }
 
