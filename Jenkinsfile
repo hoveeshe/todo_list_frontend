@@ -3,8 +3,8 @@ pipeline {
 	stages{
 		stage('Build') {
 			steps{
-				bat label: '', script: '''npm install
-				npm run build'''
+				bat label: '', script: 'npm install'
+				bat label: '', script: 'npm run build'
 			}
 		}
 	}
