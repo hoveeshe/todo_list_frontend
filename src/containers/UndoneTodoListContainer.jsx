@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import UndoneTodoList from '../components/UndoneTodoList'
+import TodoList from '../components/TodoList'
 import {
   deleteTodo,
   initData,
@@ -7,7 +7,7 @@ import {
 } from '../actions'
 
 const mapStateToProps = (state) => ({
-  todoList: state.todoList
+  todoList: state.todoList.filter(item => !item.status)
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch) => ({
   }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(UndoneTodoList)
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
