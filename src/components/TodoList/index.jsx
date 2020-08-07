@@ -60,7 +60,7 @@ class TodoList extends React.Component {
     })
   }
 
-  componentDidMount() {
+  componentWillMount() {
     getTodos()
     .then(response => {
       this.props.initData(response.data)
