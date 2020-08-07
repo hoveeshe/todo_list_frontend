@@ -15,6 +15,7 @@ class Todo extends React.Component {
   }
 
   render() {
+    console.log(this.props.todo)
     const createdTime = new Date(this.props.todo.createdTime).toLocaleString()
     return (
       <Card style={{ width: 330 }}
