@@ -20,7 +20,7 @@ class TodoList extends React.Component {
     return (
       <div>
         <h3>Todo List</h3>
-        <List
+        {this.props.todoList ? <List
           grid={{
             gutter: 20,
             xs: 1,
@@ -39,7 +39,7 @@ class TodoList extends React.Component {
                 deleteTodo={this.deleteTodo} />
             </List.Item>
           )}
-        />
+        />:''}
       </div>
     )
   }
